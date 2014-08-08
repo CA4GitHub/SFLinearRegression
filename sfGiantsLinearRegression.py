@@ -14,7 +14,9 @@ theRunsAgainst = theData['RA']
 if len(theWL)==len(theRuns) and len(theWL)==len(theRunsAgainst):
 	numSeasons = len(theWL)
 else:
-	print('Dimension mismatch!')
+	#print error and exit program if dimensions don't match
+	print('Error: Dimension mismatch!')
+	exit()
 
 #check rounding in following statement
 xdata1 = [theRuns[i][0] for i in range(numSeasons)]
