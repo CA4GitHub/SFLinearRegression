@@ -18,7 +18,9 @@ else:
 	print('Error: Dimension mismatch!')
 	exit()
 
-#check rounding in following statement
+#checked rounding & saw small numerical differences from original data
+#type(xdata1[0]) shows the data are numpy.float64 objects
+#could convert to float objects, but don't need to do this to illustrate idea
 xdata1 = [theRuns[i][0] for i in range(numSeasons)]
 xdata2 = [theRunsAgainst[i][0] for i in range(numSeasons)]
 xdata3 = list(numpy.array(xdata1, dtype = numpy.int16) - numpy.array(xdata2, dtype = numpy.int16))
