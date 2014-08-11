@@ -30,8 +30,9 @@ ydata = [theWL[i][0] for i in range(numSeasons)]
 A1 = numpy.array( [xdata1, numpy.ones(numSeasons) ] )
 w1 = numpy.linalg.lstsq(A1.T,ydata)[0]
 print(w1)
+yRegEst1 = [w1[0]*xdata1[i] + w1[1] for i in range(numSeasons)]
 
-plt.plot(xdata1,ydata,'ro')
+plt.plot(xdata1,ydata,'ro',xdata1,yRegEst1,'b-')
 plt.title('SF Win Percentage vs. Runs Scored By SF')
 plt.xlabel('Runs Scored By SF')
 plt.ylabel('SF Win Percentage')
@@ -41,8 +42,9 @@ plt.show()
 A2 = numpy.array( [xdata2, numpy.ones(numSeasons) ] )
 w2 = numpy.linalg.lstsq(A2.T,ydata)[0]
 print(w2)
+yRegEst2 = [w2[0]*xdata2[i] + w2[1] for i in range(numSeasons)]
 
-plt.plot(xdata2,ydata,'bo')
+plt.plot(xdata2,ydata,'ro',xdata2,yRegEst2,'b-')
 plt.title('SF Win Percentage vs. Runs Scored Against SF')
 plt.xlabel('Runs Scored Against SF')
 plt.ylabel('SF Win Percentage')
@@ -52,8 +54,9 @@ plt.show()
 A3 = numpy.array( [xdata3, numpy.ones(numSeasons) ] )
 w3 = numpy.linalg.lstsq(A3.T,ydata)[0]
 print(w3)
+yRegEst3 = [w3[0]*xdata3[i] + w3[1] for i in range(numSeasons)]
 
-plt.plot(xdata3,ydata,'bo')
+plt.plot(xdata3,ydata,'ro',xdata3,yRegEst3,'b-')
 plt.title('SF Win Percentage vs. SF Run Differential')
 plt.xlabel('SF Run Differential')
 plt.ylabel('SF Win Percentage')
