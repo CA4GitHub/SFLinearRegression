@@ -105,3 +105,12 @@ plt.xlabel('SF Run Differential')
 plt.ylabel('SF Win Percentage')
 plt.grid(True)
 plt.show()
+
+#plot coefficient of determination to compare models
+plt.bar([1,2,3],[rSquared1, rSquared2, rSquared3],align='center')
+plt.xticks([1,2,3],['SF Runs', 'Runs Scored Against SF', 'SF Run Differential'])
+plt.title('Coefficient of Determination for Different Independent Variables')
+plt.xlabel('Independent Variable')
+plt.ylabel('Coefficient of Determination')
+plt.grid(True)
+plt.show()
