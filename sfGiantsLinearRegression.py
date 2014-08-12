@@ -25,6 +25,11 @@ def SSE(y, yEst):
 	yDiffSquared = [(y[i]-yEst[i])**2 for i in range(len(y))]
 	return sum(yDiffSquared)
 
+def coeffOfDeter(SSY,SSE):
+	#SSY = SSX(y)
+	rSquared = (SSY - SSE)/SSY
+	return rSquared
+
 #t-statistic for slope of simple linear regression
 def tStatForSlope(slopeEst,s,ssX):
 	#s**2 = sumSquareErrors(y)/( len(x) - 2 )
@@ -59,6 +64,8 @@ print(w1)
 yRegEst1 = [w1[0]*xdata1[i] + w1[1] for i in range(numSeasons)]
 tStat1 = tStatForSlope(w1[0],(SSE(ydata,yRegEst1)/(numSeasons-2))**0.5,SSX(xdata1))
 print(tStat1)
+rSquared1 = coeffOfDeter(SSX(ydata),SSE(ydata,yRegEst1))
+print(rSquared1)
 
 plt.plot(xdata1,ydata,'ro',xdata1,yRegEst1,'b-')
 plt.title('SF Win Percentage vs. Runs Scored By SF')
@@ -73,6 +80,8 @@ print(w2)
 yRegEst2 = [w2[0]*xdata2[i] + w2[1] for i in range(numSeasons)]
 tStat2 = tStatForSlope(w2[0],(SSE(ydata,yRegEst2)/(numSeasons-2))**0.5,SSX(xdata2))
 print(tStat2)
+rSquared2 = coeffOfDeter(SSX(ydata),SSE(ydata,yRegEst2))
+print(rSquared2)
 
 plt.plot(xdata2,ydata,'ro',xdata2,yRegEst2,'b-')
 plt.title('SF Win Percentage vs. Runs Scored Against SF')
@@ -87,6 +96,8 @@ print(w3)
 yRegEst3 = [w3[0]*xdata3[i] + w3[1] for i in range(numSeasons)]
 tStat3 = tStatForSlope(w3[0],(SSE(ydata,yRegEst3)/(numSeasons-2))**0.5,SSX(xdata3))
 print(tStat3)
+rSquared3 = coeffOfDeter(SSX(ydata),SSE(ydata,yRegEst3))
+print(rSquared3)
 
 plt.plot(xdata3,ydata,'ro',xdata3,yRegEst3,'b-')
 plt.title('SF Win Percentage vs. SF Run Differential')
